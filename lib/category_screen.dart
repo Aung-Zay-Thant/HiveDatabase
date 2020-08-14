@@ -14,6 +14,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(15.0),
@@ -44,15 +45,33 @@ Widget _buildWithBox(BuildContext context, Box settings, Widget child) {
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Text("Category", style: TextStyle(fontSize: 20)),
-          IconButton(
-            icon: Icon(reversed ? Icons.arrow_upward : Icons.arrow_downward),
-            onPressed: () {
-              settings.put("reversed", !reversed);
-            },
+          Container(
+            child: Row(
+              children: [
+                Text("Category", style: TextStyle(fontSize: 20)),
+                IconButton(
+                  icon: Icon(
+                      reversed ? Icons.arrow_upward : Icons.arrow_downward),
+                  onPressed: () {
+                    settings.put("reversed", !reversed);
+                  },
+                ),
+              ],
+            ),
           ),
+          // Container(
+          //   child: Row(
+          //     children: [
+          //       Text("Find", style: TextStyle(fontSize: 20)),
+          //       IconButton(
+          //         icon: Icon(Icons.search),
+          //         onPressed: () {},
+          //       ),
+          //     ],
+          //   ),
+          // )
         ],
       ),
       Expanded(
